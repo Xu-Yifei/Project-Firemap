@@ -10,9 +10,10 @@
 	<script type="text/javascript">
 		var weather;
 		var score;
-
+		var latitude = 34.5764337;
+		var longitude = -120.4491638;
 		// Write most of your code here, because you can only run the code AFTER the API has retrieved data
-		axios.get('https://api.openweathermap.org/data/2.5/weather?lat=12.5818247&lon=164.4719888&appid=e5d2334fc57b0005a1abcf1638be18a0').then(function(response) {
+		axios.get('https://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&appid=e5d2334fc57b0005a1abcf1638be18a0').then(function(response) {
 			weather = response.data;
 			console.log(response.data);
 
