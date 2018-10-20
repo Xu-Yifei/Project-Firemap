@@ -19,7 +19,7 @@ function initMap() {
       };
 
       infoWindow.setPosition(pos);
-      infoWindow.setContent('Location found.');
+      infoWindow.setContent('Location found');
       infoWindow.open(map);
       map.setCenter(pos);
     }, function() {
