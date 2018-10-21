@@ -1,31 +1,29 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
     <head>
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <link rel="stylesheet" type="text/css" href="styles.css" />
-        <!--[if IE]>
-        <style type="text/css">
-        .clear {
-          zoom: 1;
-          display: block;
-        }
-        </style>
-        <![endif]-->
     </head>
     <body src="https://unpkg.com/axios/dist/axios.min.js">
-        <h1 id="headerbar">CNI Firemap</h1>
+        <h1 id="headerbar">CNI Firemap
+            <div class="nav clear"> <!-- New Section HERE HERE HERE HERE HERE HERE HERE -->
+                <ul>
+                    <li><a href="indexpagetwo.html">Fire Sighting Submissions</a></li>
+                </ul>
+            </div>
+        </h1>
         
         <div class = "column left">
                     <div id="map"></div>
                     <div class="container">
-                        <button>North America</button>
-                        <button>South America</button>
-                        <button>Asia</button> 
-                        <button>Africa</button> 
-                        <button>Europe</button> 
-                        <button>Australia</button>
+                        <button onclick="reposition(1)">North America</button>
+                        <button onclick="reposition(2)">South America</button>
+                        <button onclick="reposition(3)">Asia</button> 
+                        <button onclick="reposition(4)">Africa</button> 
+                        <button onclick="reposition(5)">Europe</button> 
+                        <button onclick="reposition(6)">Australia</button>
                     </div>
         </div>
         <div class = "column right">
@@ -33,15 +31,77 @@
             <p id="location">Approximate location: </p>
             <p id="coordinates">Coordinates: </p>
             <p id="firescore">Fire risk: </p>
+            <p id="weather">Weather: </p>
             <p id="temperature">Temperature: </p>
             <p id="humidity">Humidity: </p>
             <p id="windspeed">Wind speed: </p>
-            <p>Legend</p>
+
+            <div class = "line"></div>
+            
+        <br><br>
+        <p style ="padding-bottom: 0.9em;">Legend:</p>
+        
+        <table style= "padding-left:4em">
+            <tr>
+                <td>
+                    <div class = "c circle-white"></div>
+                </td>
+                <td>
+                    <c>&nbspLow risk</c>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <div class = "c circle-yellow"></div>
+                </td>
+                <td>
+                    <c>&nbspMedium risk</c>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <div class = "c circle-orange"></div>
+                </td>
+                <td>
+                    <c>&nbspHigh risk</c>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <div class = "c circle-red"></div>
+                </td>
+                <td>
+                    <c>&nbspVery high risk</c>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <div class = "c circle-maroon"></div>
+                </td>
+                <td>
+                    <c>&nbspExtreme risk</c>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <div class = "c circle-black" style = "padding-bottom: 0"></div>
+                </td>
+                <td>
+                    <c>&nbspCatastrophic risk</c>
+                </td>
+            </tr>
+        </table>
         </div>
+
         <div>
-            <br>
-            <br>
-            <p id="poutside"></p>
+            <h2>README</h2>
+            <p id="poutside">Project-Firemap</p>
+            <p id="poutside">Built during the NASA/CSA 2018 Space Apps Hackathon</p>
+            <p id="poutside">This is a web-based interactive map that displays regions of potential risk for wildfires with user interaction.</p>
+            <p id="poutside">To calculate the risk of a wildfire in a specified area, we used the coordinates of the location to pull data from OpenWeatherMap API.</p>
+            <p id="poutside">We applied this information into the following formula:</p>
+            <p id="poutside">10 * exp(ln2 - 0.45 - 0.0345 * relative_humidity + 0.0338 x temp + 0.0234 * wind_speed)</p>
+            <p id="poutside">to get the approximate McArthur Forest Fire Danger Index using the available data provided.</p>
         </div>
 
         <!-- JS Includes -->

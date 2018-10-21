@@ -72,7 +72,7 @@ h2{
 	font-weight:normal;
 	letter-spacing:0.01em;
 	text-transform:uppercase;
-    padding-top: 20%;
+    padding-top: 50%;
 	padding-left: 10%;
 	padding-right: 10%;
 }
@@ -82,13 +82,20 @@ p{
     font-size: 1.2em;
 	line-height:1.5em;
     padding-left: 10%;
-    padding-bottom: 3em;
+    padding-bottom: 2.3em;
+}
+
+c{
+    font-family: "Helvetica";
+    font-size:1.1em;
+    padding-bottom:1em;
+    line-height:1.5em;
 }
 
 #poutside{
+	padding-bottom: 1em;
     padding-left:20%;
 	padding-right: 20%;
-	padding-bottom: 5%;
 }
 
 .bonus {
@@ -99,7 +106,7 @@ p{
 
 .line{
 	/* The dividing line: */
-	height:1px;
+	height:0.5px;
 	background-color:#24404c;
 	border-bottom:1px solid #416371;
 	margin: 0;
@@ -135,7 +142,7 @@ div.footer .line{
     background:url(img/gradient_light.jpg) repeat-x 50% 50% #f8f8f8;
 	color:#565656;
 	float:left;
-	font-size:1.35em;
+	font-size:110%;
 	font-weight:bold;
     display: inline;
     position:static;
@@ -148,18 +155,21 @@ div.footer .line{
 	display:inline;
     position:static;
 	float:left;
-	font-size:1.35em;
+	font-size:110%;
 	font-weight:bold;
 	text-shadow:0 1px 1px black;
 	text-transform:uppercase;
 }
 
-/* div.nav{
+div.nav{
 	background:url(img/gradient_light.jpg) repeat-x 50% 50% #f8f8f8;
-	padding: 5px;
+	padding:0 5px;
 	position:absolute;
-	left:12em;
-	bottom:20em;    
+	right:7px;
+	top:50px;
+	width:425px;
+	height:50px;
+	font-size:0.23em;
 	
 	border:1px solid #FCFCFC;
 
@@ -167,7 +177,7 @@ div.footer .line{
 	-webkit-box-shadow:0 1px 1px #333333;
 	box-shadow:0 1px 1px #333333;
 }
-*/
+
 /* The clearfix hack to clear the floats: */
 
 .clear:after{
@@ -239,4 +249,71 @@ div.figure{
 	height:20%;
 	overflow:hidden;
 	width:95%;
+}
+
+/*=================================*/
+.circle-white {
+    height: 1em; /*change this and the width
+    for the size of your initial circle*/
+    width:1em;
+    border-radius: 50%;
+    /*make it pretty*/
+    background: #fff;
+    color: #000;
+    border: 0.5px solid #000
+}
+.circle-yellow {
+    display: table-cell;
+    height:1em; /*change this and the width
+    for the size of your initial circle*/
+    width:1em;
+    border-radius: 50%;
+    /*make it pretty*/
+    background: #FFFF24;
+    color: #000;
+    border: 0.5px solid #000
+}
+.circle-orange {
+    display: table-cell;
+    height: 1em; /*change this and the width
+    for the size of your initial circle*/
+    width:1em;
+    border-radius: 50%;
+    /*make it pretty*/
+    background: #F58F00;
+    color: #000;
+    border: 0.5px solid #000
+}
+.circle-red{
+    display: table-cell;
+    height:1em; /*change this and the width
+    for the size of your initial circle*/
+    width:1em;
+    border-radius: 50%;
+    /*make it pretty*/
+    background: #FF0000;
+    color: #fff;
+    border: 0.5px solid #000
+}
+.circle-maroon {
+    display: table-cell;
+    height:1em; /*change this and the width
+    for the size of your initial circle*/
+    width:1em;
+    border-radius: 50%;
+    /*make it pretty*/
+    background: #620007;
+    color: #fff;
+    border: 0.5px solid #000
+}
+.circle-black {
+    display: table-cell;
+    height:1em; /*change this and the width
+    for the size of your initial circle*/
+    width:1em;
+    border-radius: 50%;
+    /*make it pretty*/
+    background: #000000;
+    color: #fff;
+    border: 0.5px solid #000
 }
