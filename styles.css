@@ -82,7 +82,14 @@ p{
     font-size: 1.2em;
 	line-height:1.5em;
     padding-left: 10%;
-    padding-bottom: 3em;
+    padding-bottom: 2.3em;
+}
+
+c{
+    font-family: "Helvetica";
+    font-size:1.1em;
+    padding-bottom:1em;
+    line-height:1.5em;
 }
 
 #poutside{
@@ -99,9 +106,9 @@ p{
 
 .line{
 	/* The dividing line: */
-	height:1px;
+	height:0.5px;
 	background-color:#24404c;
-	border-bottom:1px solid #416371;
+	border-bottom:0px solid #416371;
 	margin: 0;
 	overflow:hidden;
 }
@@ -239,4 +246,71 @@ div.figure{
 	height:20%;
 	overflow:hidden;
 	width:95%;
+}
+
+/*=================================*/
+.circle-white {
+    height: 1em; /*change this and the width
+    for the size of your initial circle*/
+    width:1em;
+    border-radius: 50%;
+    /*make it pretty*/
+    background: #fff;
+    color: #000;
+    border: 0.5px solid #000
+}
+.circle-yellow {
+    display: table-cell;
+    height:1em; /*change this and the width
+    for the size of your initial circle*/
+    width:1em;
+    border-radius: 50%;
+    /*make it pretty*/
+    background: #FFFF24;
+    color: #000;
+    border: 0.5px solid #000
+}
+.circle-orange {
+    display: table-cell;
+    height: 1em; /*change this and the width
+    for the size of your initial circle*/
+    width:1em;
+    border-radius: 50%;
+    /*make it pretty*/
+    background: #F58F00;
+    color: #000;
+    border: 0.5px solid #000
+}
+.circle-red{
+    display: table-cell;
+    height:1em; /*change this and the width
+    for the size of your initial circle*/
+    width:1em;
+    border-radius: 50%;
+    /*make it pretty*/
+    background: #FF0000;
+    color: #fff;
+    border: 0.5px solid #000
+}
+.circle-maroon {
+    display: table-cell;
+    height:1em; /*change this and the width
+    for the size of your initial circle*/
+    width:1em;
+    border-radius: 50%;
+    /*make it pretty*/
+    background: #620007;
+    color: #fff;
+    border: 0.5px solid #000
+}
+.circle-black {
+    display: table-cell;
+    height:1em; /*change this and the width
+    for the size of your initial circle*/
+    width:1em;
+    border-radius: 50%;
+    /*make it pretty*/
+    background: #000000;
+    color: #fff;
+    border: 0.5px solid #000
 }
