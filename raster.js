@@ -6,21 +6,26 @@ function getData(latitude, longitude) {
 	.then(function() {
 		score = 10 * Math.exp(Math.log(2) - 0.45 - 0.0345 * weather.main.humidity + 0.0338 * (weather.main.temp - 273.15) + 0.0234 * (weather.wind.speed * 36 / 10));
 		console.log(score);
-		document.getElementById('firescore').innerHTML = "Fire risk: " + score;
-		document.getElementById('temperature').innerHTML = "Temperature: " + (weather.main.temp - 273.15) + " °C";
-		document.getElementById('location').innerHTML = "Approximate location: " + weather.name + ", " + weather.sys.country;
-		document.getElementById("windspeed").innerHTML = "Windspeed: " + (weather.wind.speed * 10 / 36) + " km/h";
-		document.getElementById("humidity").innerHTML = "Humidity: " + weather.main.humidity + "%";
 		return score;
 		/* do something with the result */
 	})
 	.then(function(score) {
+		
 		return {
 			location: {
 				center: {lat: latitude, lng: longitude},
-				fire_index: score
+				fire_index: score,
+				display_weather: weather.weather.[1],
+				display_temp: weather.main.temp - 273.15,
+				display_humidity: weather.main.humidity,
+				display_windspeed: weather.wind.speed
 			}
 		};
+	})
+	.then(function(location){
+		document.getElementById('weather').innerHTML = location.display_temp;
+		console.log(location.display_temp);
+		return location;
 	})
 	.catch(function(error) {
 		console.log(error);
@@ -28,27 +33,53 @@ function getData(latitude, longitude) {
 	});
 }
 
+/*function display (location) {
+	document.getElementById('weather').innerHTML = location.fire_index;
+	console.log(location.display_weather);
+}*/
+
 function colour (location) {
 	// calculates the colour of each location based on the fire index
 	if (location.fire_index <= 5) {
 		return '#F7F7F7';
 	}
+	else if (location.fire_index <= 7.5) {
+		return 'ffff70';
+	}
 	else if (location.fire_index <= 10) {
 		return '#FFFF24';
 	}
+	else if (location.fire_index <= 12.5) {
+		return '#ffd83d';
+	}
 	else if (location.fire_index <= 15) {
 		return '#F5C400';
+	}
+	else if (location.fire_index <= 17.5) {
+		return '#ffaf11';
 	}
 	else if (location.fire_index <= 20) {
 		return '#F58F00';
 	}
 	else if (location.fire_index <= 25) {
+		return '#ff5400';
+	}
+	else if (location.fire_index <= 30) {
+		return '#ff2a00';
+	}
+	else if (location.fire_index <= 40) {
 		return '#FF0000';
 	}
 	else if (location.fire_index <= 50) {
+		return '#c1000d';
+	}
+	else if (location.fire_index <= 60) {
 		return '#620007';
 	}
 	else if (location.fire_index <= 75) {
+		return '#45002f';
+	}
+	else if (location.fire_index <= 90) {
 		return '#450045';
 	}
 	else {

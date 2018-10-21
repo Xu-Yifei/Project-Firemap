@@ -170,6 +170,27 @@ div.footer .line{
 */
 /* The clearfix hack to clear the floats: */
 
+
+/*NEW CODE HERE HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI HI*/
+div.nav{
+	background:url(img/gradient_light.jpg) repeat-x 50% 50% #f8f8f8;
+	padding:0 5px;
+	position:absolute;
+	right:7px;
+	top:50px;
+	width:425px;
+	height:50px;
+	font-size:0.23em;
+	
+	border:1px solid #FCFCFC;
+
+	-moz-box-shadow:0 1px 1px #333333;
+	-webkit-box-shadow:0 1px 1px #333333;
+	box-shadow:0 1px 1px #333333;
+}
+
+/*new code ENDS HERE BYE BYE BYE BYE BYE BYE*/
+
 .clear:after{
 	content: ".";
 	display: block;
