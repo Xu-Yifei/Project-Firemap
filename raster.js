@@ -28,22 +28,43 @@ function colour (location) {
 	if (location.fire_index <= 5) {
 		return '#F7F7F7';
 	}
+	else if (location.fire_index <= 7.5) {
+		return 'ffff70';
+	}
 	else if (location.fire_index <= 10) {
 		return '#FFFF24';
 	}
+	else if (location.fire_index <= 12.5) {
+		return '#ffd83d';
+	}
 	else if (location.fire_index <= 15) {
 		return '#F5C400';
+	}
+	else if (location.fire_index <= 17.5) {
+		return '#ffaf11';
 	}
 	else if (location.fire_index <= 20) {
 		return '#F58F00';
 	}
 	else if (location.fire_index <= 25) {
+		return '#ff5400';
+	}
+	else if (location.fire_index <= 30) {
+		return '#ff2a00';
+	}
+	else if (location.fire_index <= 40) {
 		return '#FF0000';
 	}
 	else if (location.fire_index <= 50) {
+		return '#c1000d';
+	}
+	else if (location.fire_index <= 60) {
 		return '#620007';
 	}
 	else if (location.fire_index <= 75) {
+		return '#45002f';
+	}
+	else if (location.fire_index <= 90) {
 		return '#450045';
 	}
 	else {
