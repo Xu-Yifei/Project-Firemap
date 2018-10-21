@@ -135,7 +135,7 @@ div.footer .line{
     background:url(img/gradient_light.jpg) repeat-x 50% 50% #f8f8f8;
 	color:#565656;
 	float:left;
-	font-size:1.35em;
+	font-size:110%;
 	font-weight:bold;
     display: inline;
     position:static;
@@ -148,7 +148,7 @@ div.footer .line{
 	display:inline;
     position:static;
 	float:left;
-	font-size:1.35em;
+	font-size:110%;
 	font-weight:bold;
 	text-shadow:0 1px 1px black;
 	text-transform:uppercase;
