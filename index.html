@@ -12,12 +12,12 @@
         <div class = "column left">
                     <div id="map"></div>
                     <div class="container">
-                        <button>North America</button>
-                        <button>South America</button>
-                        <button>Asia</button> 
-                        <button>Africa</button> 
-                        <button>Europe</button> 
-                        <button>Australia</button>
+                        <button onclick="reposition(1)">North America</button>
+                        <button onclick="reposition(2)">South America</button>
+                        <button onclick="reposition(3)">Asia</button> 
+                        <button onclick="reposition(4)">Africa</button> 
+                        <button onclick="reposition(5)">Europe</button> 
+                        <button onclick="reposition(6)">Australia</button>
                     </div>
         </div>
         <div class = "column right">
@@ -31,12 +31,14 @@
             <p>Legend</p>
         </div>
         <div>
-            <br>
-            <br>
-            <h2></h2>
-            <p id="poutside">
-                
-            </p>
+            <h2>README</h2>
+            <p id="poutside">Project-Firemap</p>
+            <p id="poutside">Built during the NASA/CSA 2018 Space Apps Hackathon</p>
+            <p id="poutside">This is a web-based interactive map that displays regions of potential risk for wildfires with user interaction.</p>
+            <p id="poutside">To calculate the risk of a wildfire in a specified area, we used the coordinates of the location to pull data from OpenWeatherMap API.</p>
+            <p id="poutside">We applied this information into the following formula:</p>
+            <p id="poutside">10 * exp(ln2 - 0.45 - 0.0345 * relative_humidity + 0.0338 x temp + 0.0234 * wind_speed)</p>
+            <p id="poutside">to get the approximate McArthur Forest Fire Danger Index using the available data provided.</p>
         </div>
 
         <!-- JS Includes -->
