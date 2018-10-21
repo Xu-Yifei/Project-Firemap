@@ -22,7 +22,6 @@
         <div class="continent">
             <a href="article1" class="continent_button">North America</a> <a href="article2" class="continent_button">South America</a> <a href="article3" class="continent_button">Asia</a> <a href="article4" class="continent_button">Africa</a> <a href="article5" class="continent_button">Europe</a> <a href="article6" class="continent_button">Australia</a>
         </div>
-
         <div class="bonus">
             <br>
             <br>
@@ -45,14 +44,23 @@
             <h2>About</h2>
             <p>This interactive map lets you pick any location on Earth and it will display for its current weather conditions at the time of clicking. This project was completed by team CN Imports with the generous aid of the 2018 Space Apps Hackathon volunteers.</p>
         </div>
+        
         <!-- JS Includes -->
         <script src = "gmapsbody.js"> </script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" src="jquery.scrollTo-1.4.2/jquery.scrollTo-min.js" src="script.js"> </script>
-
         <!--Load the API from the specified URL
         * The async attribute allows the browser to render the page while the API loads
         * The key parameter will contain your own API key (which is not needed for this tutorial)
         * The callback parameter executes the initMap() function-->
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCc8zoz1ei90w7dtMfXH1e50wcOy0AaCHU&callback=initMap"> </script>
+        
+            <div class="container">
+                <a href="article1">North America</a>
+                <a href="article2">South America</a>
+                <a href="article3">Asia</a> 
+                <a href="article4">Africa</a> 
+                <a href="article5">Europe</a> 
+                <a href="article6">Australia</a>
+            </div>
     </body>
 </html>
