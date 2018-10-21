@@ -23,38 +23,15 @@
 
     <script>
 
-
-      var ottawa =
-          {"coord":{"lon":-79.56,"lat":45.61},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":278.91,"pressure":983.68,"humidity":60,"temp_min":278.91,"temp_max":278.91,"sea_level":1018.08,"grnd_level":983.68},"wind":{"speed":3.56,"deg":323.501},"clouds":{"all":68},"dt":1540071540,"sys":{"message":0.004,"country":"CA","sunrise":1540035756,"sunset":1540074142},"id":5911570,"name":"Burk's Falls","cod":200};
-
-      var losangeles = {
-          "coord":{"lon":-119.69,"lat":36.78},"weather":[{"id":721,"main":"Haze","description":"haze","icon":"50d"}],"base":"stations","main":{"temp":300.83,"pressure":1015,"humidity":21,"temp_min":300.15,"temp_max":302.15},"visibility":14484,"wind":{"speed":2.1},"clouds":{"all":1},"dt":1540068960,"sys":{"type":1,"id":387,"message":0.0041,"country":"US","sunrise":1540044707,"sunset":1540084461},"id":5405760,"name":"Vanris (historical)","cod":200} ;
-
-      var alicesprings = {
-        "coord":{"lon":135.7,"lat":-22.91},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01n"}],"base":"stations","main":{"temp":297.674,"pressure":983.7,"humidity":19,"temp_min":297.674,"temp_max":297.674,"sea_level":1031.58,"grnd_level":983.7},"wind":{"speed":5.07,"deg":122.013},"clouds":{"all":0},"dt":1540075999,"sys":{"message":0.003,"sunrise":1539980412,"sunset":1540026232},"id":0,"name":"","cod":200}; 
-
-      function calculator (city) {
-        var score;
-
-          // The formula for a location's "fire likelihood"
-          score = 10 * Math.exp(Math.log(2) - 0.45 - 0.0345 * city.main.humidity + 0.0338 * (city.main.temp - 273.15) + 0.0234 * (city.wind.speed * 36 / 10));
-         //score = 10 * Math.exp(Math.log(2) - 0.45 - 0.0345 * weather.city.main.humidity + 0.0338 * (weather.city.main.temp - 273.15) + 0.0234 * (weather.city.wind.speed * 36 / 10));   
-
-        return score;
-      }
-
     var weather;
     var score;
-    var latitude = 36.78;
-    var longitude = -119.69;
 
-function getData() {
+function getData(latitude, longitude) {
     return axios.get('https://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&appid=e5d2334fc57b0005a1abcf1638be18a0')
     .then(function(response) {
       weather = response.data;
-      exist = true;
     })
-    .then(function() { 
+    .then(function() {
       score = 10 * Math.exp(Math.log(2) - 0.45 - 0.0345 * weather.main.humidity + 0.0338 * (weather.main.temp - 273.15) + 0.0234 * (weather.wind.speed * 36 / 10));
       console.log(score);
       return score;
@@ -62,19 +39,9 @@ function getData() {
     })
     .then(function(score) {
       return {
-        losangeles: {
-          center: {lat: 36.78, lng: -119.69},
-          fire_index: score,
-        },
-        alicesprings: {
-          center: {lat: -22.91, lng: 134.7},
-          fire_index: calculator(alicesprings),
-          //colour: colour(alicesprings)
-        },
-        ottawa: {
-          center: {lat: 45.61, lng: -79.56},
-          fire_index: calculator(ottawa),
-          //colour: colour(ottawa)
+        location: {
+          center: {lat: latitude, lng: longitude},
+          fire_index: score
         }
       };
     })
@@ -84,65 +51,63 @@ function getData() {
     });
   }
 
-      
+  function colour (location) {
+    // calculates the colour of each location based on the fire index
+    if (location.fire_index <= 5) {
+      return '#F7F7F7';
+    }
+    else if (location.fire_index <= 10) {
+      return '#FFFF24';
+    }
+    else if (location.fire_index <= 15) {
+      return '#F5C400';
+    }
+    else if (location.fire_index <= 20) {
+      return '#F58F00';
+    }
+    else if (location.fire_index <= 25) {
+      return '#FF0000';
+    }
+    else if (location.fire_index <= 50) {
+      return '#620007';
+    }
+    else if (location.fire_index <= 75) {
+      return '#450045';
+    }
+    else {
+      return '#000000';
+    }
+  }
 
-      function colour (city) {
-        // calculates the colour of each city based on the fire index
-        if (city.fire_index <= 5) {
-          return '#F7F7F7';
-        }
-        else if (city.fire_index <= 10) {
-          return '#FFFF24';
-        }
-        else if (city.fire_index <= 15) {
-          return '#F5C400';
-        }
-        else if (city.fire_index <= 20) {
-          return '#F58F00';
-        }
-        else if (city.fire_index <= 25) {
-          return '#FF0000';
-        }
-        else if (city.fire_index <= 50) {
-          return '#620007';
-        }
-        else if (city.fire_index <= 75) {
-          return '#450045';
-        }
-        else {
-          return '#000000';
-        }
-      }
+  function initMap() {
+    // Create the map.
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 4,
+      center: {lat: 37.090, lng: -95.712},
+      mapTypeId: 'terrain'
+    });
 
-      function initMap() {
-        // Create the map.
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: {lat: 37.090, lng: -95.712},
-          mapTypeId: 'terrain'
-        });
-
-        getData().then(function(citymap) {
-          // Construct the circle for each value in citymap.
-        for (var city in citymap) {
-          // Add the circle for this city to the map.
-          var cityCircle = new google.maps.Circle({
-            strokeColor: colour(citymap[city]),
-            strokeOpacity: 0.8,
-            strokeWeight: 0.35,
-            fillColor: colour(citymap[city]),
-            fillOpacity: 0.35,
-            map: map,
-            center: citymap[city].center,
-            radius: 50000
-          });
-        }
+    getData(45.61, -79.56).then(function(citymap) {
+      // Construct the circle for each value in map.
+    for (var city in citymap) {
+      // Add the circle for this city to the map.
+      var cityCircle = new google.maps.Circle({
+        strokeColor: colour(citymap[city]),
+        strokeOpacity: 0.8,
+        strokeWeight: 0.35,
+        fillColor: colour(citymap[city]),
+        fillOpacity: 0.35,
+        map: map,
+        center: citymap[city].center,
+        radius: 50000
       });
-        
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCc8zoz1ei90w7dtMfXH1e50wcOy0AaCHU&callback=initMap">
-    </script>
+    }
+  });
+
+  }
+  </script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCc8zoz1ei90w7dtMfXH1e50wcOy0AaCHU&callback=initMap">
+  </script>
   </body>
-</html>
+  </html>
