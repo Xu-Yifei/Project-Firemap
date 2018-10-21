@@ -1,8 +1,4 @@
 
-    <script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-
     var weather;
     var score;
 
@@ -67,7 +63,7 @@ function getData(latitude, longitude) {
       mapTypeId: 'terrain'
     });
 
-    getData(45.61, -79.56).then(function(citymap) {
+    getData(latitude, longitude).then(function(citymap) {
       // Construct the circle for each value in map.
     for (var city in citymap) {
       // Add the circle for this city to the map.
@@ -85,7 +81,3 @@ function getData(latitude, longitude) {
   });
 
   }
-  </script>
-  <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCc8zoz1ei90w7dtMfXH1e50wcOy0AaCHU&callback=initMap">
-  </script>
