@@ -1,0 +1,6 @@
+
+const report1 = {
+    location: "Alice Springs",
+    report: "fire"
+}
+window.localStorage.setItem('user', JSON.stringify(person));
