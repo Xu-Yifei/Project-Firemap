@@ -24,10 +24,6 @@ a:hover{
 	
 }
 
-a.continent_button:hover {
-	background-color: #aaaaaa;
-}
-
 a img{
 	border:none;
 }
@@ -45,7 +41,6 @@ h1{
 	text-transform:uppercase;
 	color: #f27e26;
 }
-
 h2{
 	padding-left: 4.5em;
 	padding-right: 4.5em;
@@ -78,6 +73,7 @@ p{
 .bonus {
 	padding-left: 2em;
 	padding-right: 2em;
+	padding-bottom:1em;
 }
 
 .continent {
@@ -89,7 +85,7 @@ p{
 }
 
 #headerbar{
-	background-color: #ffffff;
+	background-color: #fffff;
 	font-size: 5.5em;
 	padding-left: 2em;
 	padding-right: 2em;
@@ -118,12 +114,13 @@ div.footer .line{
 	margin:2em 0;
 }
 
-div.nav{
+.container{
 	background:url(img/gradient_light.jpg) repeat-x 50% 50% #f8f8f8;
-	padding:0 5px;
-	position:absolute;
-	right:0;
-	top:4em;
+	padding: 5px;
+    text-align: center;
+	position:fixed;
+	left:35em;
+	bottom:20em;    
 	
 	border:1px solid #FCFCFC;
 
@@ -132,6 +129,43 @@ div.nav{
 	box-shadow:0 1px 1px #333333;
 }
 
+.container a{
+	color:#565656;
+	display:block;
+	float:left;
+	font-size:1.25em;
+	font-weight:bold;
+	margin:5px 2px;
+	padding:7px 10px 4px;
+	text-shadow:0 1px 1px white;
+	text-transform:uppercase;
+}
+.container a:hover{
+	color:#FFFFFF;
+	display:block;
+	float:left;
+	font-size:1.25em;
+	font-weight:bold;
+	margin:5px 2px;
+	padding:7px 10px 4px;
+	text-shadow:0 1px 1px white;
+	text-transform:uppercase;
+}
+
+/* div.nav{
+	background:url(img/gradient_light.jpg) repeat-x 50% 50% #f8f8f8;
+	padding: 5px;
+	position:absolute;
+	left:12em;
+	bottom:20em;    
+	
+	border:1px solid #FCFCFC;
+
+	-moz-box-shadow:0 1px 1px #333333;
+	-webkit-box-shadow:0 1px 1px #333333;
+	box-shadow:0 1px 1px #333333;
+}
+*/
 /* The clearfix hack to clear the floats: */
 
 .clear:after{
@@ -191,8 +225,7 @@ div.article{
 	background-color:#FFFFE0;
 	margin:3em 0;
 	padding:20px;
-	
-	/*text-shadow:0 2px 0 black;*/
+	text-shadow:0 2px 0 black;
 }
 
 div.figure{
