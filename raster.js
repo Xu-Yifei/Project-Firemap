@@ -6,11 +6,11 @@ function getData(latitude, longitude) {
 	.then(function() {
 		score = 10 * Math.exp(Math.log(2) - 0.45 - 0.0345 * weather.main.humidity + 0.0338 * (weather.main.temp - 273.15) + 0.0234 * (weather.wind.speed * 36 / 10));
 		console.log(score);
-		document.getElementById('firescore').innerHTML = "Fire risk: " + score;
-		document.getElementById('temperature').innerHTML = "Temperature: " + (weather.main.temp - 273.15) + " °C";
+		document.getElementById('firescore').innerHTML = "Fire risk: " + score.toFixed(2);
+		document.getElementById('temperature').innerHTML = "Temperature: " + (weather.main.temp - 273.15).toFixed(1) + " °C";
 		document.getElementById('location').innerHTML = "Approximate location: " + weather.name + ", " + weather.sys.country;
-		document.getElementById("windspeed").innerHTML = "Windspeed: " + (weather.wind.speed * 10 / 36) + " km/h";
-		document.getElementById("humidity").innerHTML = "Humidity: " + weather.main.humidity + "%";
+		document.getElementById("windspeed").innerHTML = "Windspeed: " + (weather.wind.speed * 10 / 36).toFixed(2) + " km/h";
+		document.getElementById("humidity").innerHTML = "Humidity: " + weather.main.humidity.toFixed(0) + "%";
 		return score;
 		/* do something with the result */
 	})
