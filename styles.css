@@ -15,17 +15,13 @@ body{
 /* Hyperlink Styles: */
 
 a, a:visited {
-	color:#323232;
+	color:#0196e3;
 	text-decoration:none;
 	outline:none;
 }
 
 a:hover{
 	
-}
-
-a.continent_button:hover {
-	background-color: #aaaaaa;
 }
 
 a img{
@@ -43,12 +39,6 @@ h1{
 	/* The logo text */
 	font-size:3.5em;
 	text-transform:uppercase;
-	color: #f27e26;
-}
-
-h2{
-	padding-left: 4.5em;
-	padding-right: 4.5em;
 }
 
 h3{
@@ -62,7 +52,6 @@ h3{
 h2{
 	font-size:2.2em;
 	font-weight:normal;
-	padding-bottom: 0.65em;
 	letter-spacing:0.01em;
 	text-transform:uppercase;
 }
@@ -70,14 +59,7 @@ h2{
 p{
 	font-family: "Helvetica";
 	line-height:1.5em;
-	padding-left: 10em;
-	padding-right: 12em;
-	padding-bottom: 1em;
-}
-
-.bonus {
-	padding-left: 2em;
-	padding-right: 2em;
+	padding-bottom:1em;
 }
 
 .continent {
@@ -89,13 +71,13 @@ p{
 }
 
 #headerbar{
-	background-color: #ffffff;
+	background-color: #f27e26;
 	font-size: 5.5em;
 	padding-left: 2em;
 	padding-right: 2em;
 	padding-top: 0.2em;
-	padding-bottom: 0.2em;
-	border: 1px DarkGray;
+	padding-bottom: 0.3em;
+	border: 1px;
 }
 
 .line{
@@ -118,12 +100,13 @@ div.footer .line{
 	margin:2em 0;
 }
 
-div.nav{
+.container{
 	background:url(img/gradient_light.jpg) repeat-x 50% 50% #f8f8f8;
-	padding:0 5px;
-	position:absolute;
-	right:0;
-	top:4em;
+	padding: 5px;
+    text-align: center;
+	position:fixed;
+	left:35em;
+	bottom:20em;    
 	
 	border:1px solid #FCFCFC;
 
@@ -132,6 +115,43 @@ div.nav{
 	box-shadow:0 1px 1px #333333;
 }
 
+.container a{
+	color:#565656;
+	display:block;
+	float:left;
+	font-size:1.25em;
+	font-weight:bold;
+	margin:5px 2px;
+	padding:7px 10px 4px;
+	text-shadow:0 1px 1px white;
+	text-transform:uppercase;
+}
+.container a:hover{
+	color:#FFFFFF;
+	display:block;
+	float:left;
+	font-size:1.25em;
+	font-weight:bold;
+	margin:5px 2px;
+	padding:7px 10px 4px;
+	text-shadow:0 1px 1px white;
+	text-transform:uppercase;
+}
+
+/* div.nav{
+	background:url(img/gradient_light.jpg) repeat-x 50% 50% #f8f8f8;
+	padding: 5px;
+	position:absolute;
+	left:12em;
+	bottom:20em;    
+	
+	border:1px solid #FCFCFC;
+
+	-moz-box-shadow:0 1px 1px #333333;
+	-webkit-box-shadow:0 1px 1px #333333;
+	box-shadow:0 1px 1px #333333;
+}
+*/
 /* The clearfix hack to clear the floats: */
 
 .clear:after{
@@ -191,8 +211,7 @@ div.article{
 	background-color:#FFFFE0;
 	margin:3em 0;
 	padding:20px;
-	
-	/*text-shadow:0 2px 0 black;*/
+	text-shadow:0 2px 0 black;
 }
 
 div.figure{
