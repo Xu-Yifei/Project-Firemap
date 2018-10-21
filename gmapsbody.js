@@ -32,7 +32,7 @@ function initMap() {
 
   	// Update lat/long value of div when anywhere in the map is clicked    
     google.maps.event.addListener(map,'click',function(event) {                
-        document.getElementById('coordinates').innerHTML = "Coordinates: " + event.latLng.lat() + ", " + event.latLng.lng();
+        document.getElementById('coordinates').innerHTML = "Coordinates: " + event.latLng.lat().toFixed(2) + ", " + event.latLng.lng().toFixed(2);
 
 	    
 	    getData(event.latLng.lat(),event.latLng.lng()).then(function(citymap) {
