@@ -66,7 +66,7 @@ function getData(latitude, longitude) {
       mapTypeId: 'terrain'
     });
 
-    getData(Latitude, longitude).then(function(citymap) {
+    getData(latitude, longitude).then(function(citymap) {
       // Construct the circle for each value in map.
     for (var city in citymap) {
       // Add the circle for this city to the map.
