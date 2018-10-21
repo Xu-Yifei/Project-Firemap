@@ -49,11 +49,11 @@
 			    for (var city in citymap) {
 			      	// Add the circle for this city to the map.
 			      	var cityCircle = new google.maps.Circle({
-			        	strokeColor: colour(citymap[city]),
+			        	strokeColor: '#bcbfc4',
 			        	strokeOpacity: 0.8,
-			        	strokeWeight: 0.35,
+			        	strokeWeight: 0.8,
 			        	fillColor: colour(citymap[city]),
-			        	fillOpacity: 0.35,
+			        	fillOpacity: 0.5,
 			        	map: map,
 			        	center: citymap[city].center,
 			        	radius: 50000
