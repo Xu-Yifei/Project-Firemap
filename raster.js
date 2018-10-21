@@ -9,6 +9,7 @@ function getData(latitude, longitude) {
 		document.getElementById('firescore').innerHTML = "Fire risk: " + score.toFixed(2);
 		document.getElementById('temperature').innerHTML = "Temperature: " + (weather.main.temp - 273.15).toFixed(1) + " °C";
 		document.getElementById('location').innerHTML = "Approximate location: " + weather.name + ", " + weather.sys.country;
+		document.getElementById('weather').innerHTML = "Weather: " + weather.weather[0].main;
 		document.getElementById("windspeed").innerHTML = "Windspeed: " + (weather.wind.speed * 10 / 36).toFixed(2) + " km/h";
 		document.getElementById("humidity").innerHTML = "Humidity: " + weather.main.humidity.toFixed(0) + "%";
 		return score;
