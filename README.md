@@ -16,3 +16,12 @@ A simple click on the map will pull the data for the corresponding location in t
 
 Further iterations of the map will include a button on the top that will link to a second map that will outsource the map to the public.
 In this second version, people will be able to submit sightings of fires in the world and this will be displayed on our primary map.
+
+Resources used:
+
+    HTML
+    Javascript
+    Google Map Javascript API
+    OpenWeatherMap API
+    PHP
+    Mysql
