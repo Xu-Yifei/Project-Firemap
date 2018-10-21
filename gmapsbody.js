@@ -1,5 +1,58 @@
 var map, infoWindow;
 
+function reposition(id) {
+	var pos = {
+		lat: 0, lng: 0
+	};
+	var zoom;
+	switch(id) {
+		case 1:
+			pos = {
+				lat: 53.5,
+				lng: -102,
+			};
+			zoom = 3;
+		break;
+		case 2:
+			pos = {
+				lat: -16,
+				lng: -69,
+			};
+			zoom = 3.39
+		break;
+		case 3:
+			pos = {
+				lat: 32,
+				lng: 127,
+			};
+			zoom = 3.21;
+		break;
+		case 4:
+			pos = {
+				lat: 0.7,
+				lng: 20.9,
+			};
+			zoom = 3.53;
+		break;
+		case 5:
+			pos = {
+				lat: 55.9,
+				lng: 15.2,
+			};
+			zoom = 3.84;
+		break;
+		case 6:
+			pos = {
+				lat: -31,
+				lng: 140.7,
+			};
+			zoom = 4.31;
+		break;
+	}
+	map.setCenter(pos);
+	map.setZoom(zoom);
+}
+
 function initMap() {
 	var latitude, longitude;
 	var myLatLng = {lat: latitude, lng: longitude};
@@ -22,6 +75,7 @@ function initMap() {
 		infoWindow.setContent('Location found');
 	  	infoWindow.open(map);
 	  	map.setCenter(pos);
+		map.setZoom(14);
 	}, function() {
 		handleLocationError(true, infoWindow, map.getCenter());
 	});
