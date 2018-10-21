@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Circles</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <script>
+
+    //var latitude = 35.234323;
+    //var longitude = -123.23423;
+
+    function calculator(latitude, longitude) {
+      var score;
+      var promise = axios.get('https://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&appid=e5d2334fc57b0005a1abcf1638be18a0');
+      promise.then(function(response) {
+        weather = response.data;
+        console.log(response.data);
+        // The formula for a location's "fire likelihood"
+        score = 10 * Math.exp(Math.log(2) - 0.45 - 0.0345 * weather.main.humidity + 0.0338 * (weather.main.temp - 273.15) + 0.0234 * (weather.wind.speed * 36 / 10));
+
+        // Display it in console
+        return score;
+      });
+
+    }
+
+
+    /*function calculator (city) {
+      var score;
+
+      // The formula for a location's "fire likelihood"
+      score = 10 * Math.exp(Math.log(2) - 0.45 - 0.0345 * city.main.humidity + 0.0338 * (city.main.temp - 273.15) + 0.0234 * (city.wind.speed * 36 / 10));
+      //score = 10 * Math.exp(Math.log(2) - 0.45 - 0.0345 * weather.city.main.humidity + 0.0338 * (weather.city.main.temp - 273.15) + 0.0234 * (weather.city.wind.speed * 36 / 10));
+
+      return score;
+    }*/
+
+      // First, create an object containing LatLng and fire index of each city
+    var citymap = {
+      losangeles: {
+        center: {lat: 36.78, lng: -119.69},
+        fire_index: calculator(36.78, -119.69),
+      },
+      alicesprings: {
+        center: {lat: -22.91, lng: 134.7},
+        fire_index: calculator(-22.91, 134.7),
+        //colour: colour(alicesprings)
+      },
+      ottawa: {
+        center: {lat: 45.61, lng: -79.56},
+        fire_index: calculator(45.61, -79.56),
+        //colour: colour(ottawa)
+      }
+    };
+
+    function colour (city) {
+      // calculates the colour of each city based on the fire index
+      if (city.fire_index <= 5) {
+        return '#F7F7F7';
+      }
+      else if (city.fire_index <= 10) {
+        return '#FFFF24';
+      }
+      else if (city.fire_index <= 15) {
+        return '#F5C400';
+      }
+      else if (city.fire_index <= 20) {
+        return '#F58F00';
+      }
+      else if (city.fire_index <= 25) {
+        return '#FF0000';
+      }
+      else if (city.fire_index <= 50) {
+        return '#620007';
+      }
+      else if (city.fire_index <= 75) {
+        return '#450045';
+      }
+      else {
+        return '#000000';
+      }
+    }
+
+    function initMap() {
+      // Create the map.
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 4,
+        center: {lat: 37.090, lng: -95.712},
+        mapTypeId: 'terrain'
+      });
+
+      // Construct the circle for each value in citymap.
+      for (var city in citymap) {
+        // Add the circle for this city to the map.
+        var cityCircle = new google.maps.Circle({
+          strokeColor: colour(citymap[city]),
+          strokeOpacity: 0.8,
+          strokeWeight: 0.35,
+          fillColor: colour(citymap[city]),
+          fillOpacity: 0.35,
+          map: map,
+          center: citymap[city].center,
+          radius: 50000
+        });
+      }
+    }
+  </script>
+  <script async defer
+  <src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCc8zoz1ei90w7dtMfXH1e50wcOy0AaCHU&callback=initMap">
+  </script>
+  </body>
+</html>
