@@ -1,5 +1,5 @@
 # Project-Firemap
-https://yfeix.github.io/Project-Firemap/
+https://yfxu.github.io/Project-Firemap/
 
 Built during the NASA/CSA 2018 Space Apps Hackathon in a team of six
 
